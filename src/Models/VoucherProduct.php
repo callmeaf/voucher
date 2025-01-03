@@ -2,14 +2,21 @@
 
 namespace Callmeaf\Voucher\Models;
 
-use Callmeaf\Base\Contracts\HasMeta;
 use Callmeaf\Base\Traits\HasDate;
 use Callmeaf\Base\Traits\Metaable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class VoucherProduct extends Pivot implements HasMeta
+class VoucherProduct extends Pivot
 {
     use Metaable,HasDate;
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = true;
 
     protected $table = 'voucher_product';
 
@@ -19,8 +26,14 @@ class VoucherProduct extends Pivot implements HasMeta
     ];
 
 
-    public function metaData(): ?array
+    public function product(): BelongsTo
     {
-        return null;
+        return $this->belongsTo(config('callmeaf-product.model'));
     }
+
+    public function voucher(): BelongsTo
+    {
+        return $this->belongsTo(config('callmeaf-voucher.model'));
+    }
+
 }

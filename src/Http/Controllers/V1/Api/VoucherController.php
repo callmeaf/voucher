@@ -26,9 +26,13 @@ class VoucherController extends ApiController
     protected VoucherResources $voucherResources;
     public function __construct()
     {
-        app(config('callmeaf-voucher.middlewares.voucher'))($this);
         $this->voucherService = app(config('callmeaf-voucher.service'));
         $this->voucherResources = app(config('callmeaf-voucher.resources.voucher'));
+    }
+
+    public static function middleware(): array
+    {
+        return app(config('callmeaf-voucher.middlewares.voucher'))();
     }
 
     public function index(VoucherIndexRequest $request)
