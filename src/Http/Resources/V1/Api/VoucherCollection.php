@@ -28,7 +28,7 @@ class VoucherCollection extends ResourceCollection
                 'type_text' => fn() => $voucher->typeText,
                 'title' => fn() => $voucher->title,
                 'code' => fn() => $voucher->code,
-                'discount_amount' => fn() => $voucher->discount_amount,
+                'discount_price' => fn() => $voucher->discount_price,
                 'max_uses' => fn() => $voucher->max_uses,
                 'max_uses_user' => fn() => $voucher->max_uses_user,
                 'content' => fn() => $voucher->content,

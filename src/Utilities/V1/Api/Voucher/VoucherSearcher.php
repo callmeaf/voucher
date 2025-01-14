@@ -16,8 +16,8 @@ class VoucherSearcher implements SearcherInterface
         if($value = $filters->get('code')) {
             $query->where('code',$value);
         }
-        if($value = $filters->get('discount_amount')) {
-            $query->where('discount_amount',$value);
+        if($value = $filters->get('discount_price')) {
+            $query->where('discount_price',$value);
         }
     }
 }

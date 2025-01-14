@@ -1,6 +1,6 @@
 <?php
 
-namespace Callmeaf\Otp\Exceptions;
+namespace Callmeaf\Voucher\Exceptions;
 
 use Symfony\Component\HttpFoundation\Response;
 

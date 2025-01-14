@@ -30,7 +30,7 @@ class VoucherStoreRequest extends FormRequest
             'type' => [new Enum(VoucherType::class)],
             'title' => ['string','max:255',Rule::unique(config('callmeaf-voucher.model'),'title')],
             'code' => ['string','size:' . config('callmeaf-voucher.code_length'),Rule::unique(config('callmeaf-voucher.model'),'code')],
-            'discount_amount' => ['numeric','gt:0'],
+            'discount_price' => ['numeric','gt:0'],
             'max_uses' => ['integer','min:0'],
             'max_uses_user' => ['integer','min:0'],
             'content' => ['string','max:700'],
@@ -39,7 +39,7 @@ class VoucherStoreRequest extends FormRequest
             ...publishedAndExpiredValidationRules(),
         ];
 
-        if($this->user()?->isSuperAdminOrAdmin()) {
+        if(authUser(request: $this)?->isSuperAdminOrAdmin()) {
             $rules['author_id'] = [Rule::exists(config('callmeaf-user.model'),'id')];
         }
 

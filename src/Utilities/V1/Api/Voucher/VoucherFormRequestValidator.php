@@ -21,7 +21,7 @@ class VoucherFormRequestValidator extends FormRequestValidator
             'type' => true,
             'title' => true,
             'code' => ! isEnableAutoGenerateVoucherCode(),
-            'discount_amount' => true,
+            'discount_price' => true,
             'max_uses' => false,
             'max_uses_user' => false,
             'content' => false,
@@ -30,7 +30,7 @@ class VoucherFormRequestValidator extends FormRequestValidator
             'products_ids' => false,
             'products_ids.*' => false,
         ];
-        if($this->request->user()?->isSuperAdminOrAdmin()) {
+        if(authUser(request: $this->request)?->isSuperAdminOrAdmin()) {
             $rules['author_id'] = true;
         }
 
@@ -49,7 +49,7 @@ class VoucherFormRequestValidator extends FormRequestValidator
             'type' => true,
             'title' => true,
             'code' => true,
-            'discount_amount' => true,
+            'discount_price' => true,
             'max_uses' => false,
             'max_uses_user' => false,
             'content' => false,
@@ -58,7 +58,7 @@ class VoucherFormRequestValidator extends FormRequestValidator
             'products_ids' => false,
             'products_ids.*' => false,
         ];
-        if($this->request->user()?->isSuperAdminOrAdmin()) {
+        if(authUser(request: $this->request)?->isSuperAdminOrAdmin()) {
             $rules['author_id'] = true;
         }
 

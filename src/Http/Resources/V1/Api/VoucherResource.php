@@ -27,7 +27,7 @@ class VoucherResource extends JsonResource
             'type_text' => fn() => $this->typeText,
             'title' => fn() => $this->title,
             'code' => fn() => $this->code,
-            'discount_amount' => fn() => $this->discount_amount,
+            'discount_price' => fn() => $this->discount_price,
             'max_uses' => fn() => $this->max_uses,
             'max_uses_user' => fn() => $this->max_uses_user,
             'content' => fn() => $this->content,

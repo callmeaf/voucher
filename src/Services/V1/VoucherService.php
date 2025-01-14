@@ -3,7 +3,7 @@
 namespace Callmeaf\Voucher\Services\V1;
 
 use Callmeaf\Base\Services\V1\BaseService;
-use Callmeaf\Otp\Exceptions\VoucherAutoGenerateCodeDisabledException;
+use Callmeaf\Voucher\Exceptions\VoucherAutoGenerateCodeDisabledException;
 use Callmeaf\Product\Models\Product;
 use Callmeaf\Voucher\Services\V1\Contracts\VoucherServiceInterface;
 use Illuminate\Database\Eloquent\Builder;

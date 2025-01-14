@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->string('title')->nullable();
             $table->string('code');
-            $table->string('discount_amount');
+            $table->string('discount_price');
             $table->integer('max_uses')->nullable();
             $table->integer('max_uses_user')->nullable();
             $table->text('content')->nullable();
